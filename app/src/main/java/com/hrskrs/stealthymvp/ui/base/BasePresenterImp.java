@@ -1,6 +1,11 @@
 package com.hrskrs.stealthymvp.ui.base;
 
 
+import com.hrskrs.stealthymvp.data.DataManger;
+import com.hrskrs.stealthymvp.util.rx.scheduler.SchedulerProvider;
+
+import io.reactivex.disposables.CompositeDisposable;
+
 /**
  * Created by hrskrs on 5/2/2017.
  */

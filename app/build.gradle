@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
   def configToolsDir = "$project.rootDir/configtools"
@@ -47,13 +48,13 @@ android {
       versionName rootProject.ext.versionName
       applicationIdSuffix ".debug"
 
-      buildConfigField("String", "ENDPOINT_URL", getSecret("ENDPOINT_URL"))
+      buildConfigField("String", "ENDPOINT_URL", '"https://fierce-harbor-90458.herokuapp.com/"')
     }
     prod {
       versionCode rootProject.ext.versionCode
       versionName rootProject.ext.versionName
 
-      buildConfigField("String", "ENDPOINT_URL", getSecret("ENDPOINT_URL"))
+      buildConfigField("String", "ENDPOINT_URL", "")
     }
   }
 

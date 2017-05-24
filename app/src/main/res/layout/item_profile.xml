@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_gravity="center"
+  android:layout_margin="@dimen/hk_margin_small"
+  android:background="?android:attr/selectableItemBackground"
+  android:clickable="true"
+  android:focusable="true">
+
+  <com.hrskrs.stealthymvp.view.HKImageView
+    android:id="@+id/item_profile_image"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:adjustViewBounds="true"
+    android:scaleType="fitXY"
+    tools:src="@mipmap/ic_launcher" />
+
+  <ImageView
+    android:id="@+id/item_profile_fav"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_margin="@dimen/hk_margin_small"
+    android:src="@drawable/selector_item_fav" />
+
+</RelativeLayout>

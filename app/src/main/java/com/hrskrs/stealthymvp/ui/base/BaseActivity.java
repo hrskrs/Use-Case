@@ -15,7 +15,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.hrskrs.stealthymvp.App;
 import com.hrskrs.stealthymvp.R;
+import com.hrskrs.stealthymvp.di.component.ActivityComponent;
+import com.hrskrs.stealthymvp.di.component.DaggerActivityComponent;
+import com.hrskrs.stealthymvp.di.module.ActivityModule;
+import com.hrskrs.stealthymvp.util.ConnectivityUtils;
+import com.hrskrs.stealthymvp.util.DialogUtils;
+import com.hrskrs.stealthymvp.util.FragmentTransactionUtil;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by hrskrs on 7/14/2016.
@@ -76,15 +87,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
   protected void addFragment(@NonNull Fragment fragment, boolean addToBackStack) {
     FragmentTransactionUtil.addFragment(getSupportFragmentManager(),
-        fragment, getFragmentContainerId(), addToBackStack);
-  }
-
-  protected void replaceFragment(@NonNull Fragment fragment) {
-    replaceFragment(fragment, false);
-  }
-
-  protected void replaceFragment(@NonNull Fragment fragment, boolean addToBackStack) {
-    FragmentTransactionUtil.replaceFragment(getSupportFragmentManager(),
         fragment, getFragmentContainerId(), addToBackStack);
   }
 

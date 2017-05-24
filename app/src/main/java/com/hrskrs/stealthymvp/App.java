@@ -2,9 +2,12 @@ package com.hrskrs.stealthymvp;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
 import com.hrskrs.stealthymvp.di.component.AppComponent;
+import com.hrskrs.stealthymvp.di.component.DaggerAppComponent;
 import com.hrskrs.stealthymvp.di.module.AppModule;
 import com.hrskrs.stealthymvp.di.module.NetworkModule;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by hrskrs on 5/24/2017.

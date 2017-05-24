@@ -3,7 +3,25 @@ package com.hrskrs.stealthymvp.di.module;
 import android.app.Application;
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.hrskrs.stealthymvp.di.InterceptorInfo;
+import com.hrskrs.stealthymvp.util.AppUtils;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.io.IOException;
+
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
+import okhttp3.Cache;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by hrskrs on 3/17/2017.

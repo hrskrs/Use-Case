@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="horizontal">
+
+  <com.hrskrs.stealthymvp.view.HKProgressBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:indeterminate="true"
+    android:indeterminateTint="?attr/colorAccent"
+    android:indeterminateTintMode="src_atop"
+    tools:targetApi="lollipop" />
+
+  <com.hrskrs.stealthymvp.view.HKTextView
+    android:id="@+id/loading_message"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/hk_padding_small"
+    android:paddingLeft="@dimen/hk_padding_small"
+    android:paddingRight="@dimen/hk_padding_small"
+    android:paddingStart="@dimen/hk_padding_small"
+    android:textColor="?attr/colorAccent" />
+
+</LinearLayout>

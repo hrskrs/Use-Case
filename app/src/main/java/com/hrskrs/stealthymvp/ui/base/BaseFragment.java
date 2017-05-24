@@ -11,6 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hrskrs.stealthymvp.di.component.ActivityComponent;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by hrskrs on 7/14/2016.
  */
@@ -58,12 +63,6 @@ public abstract class BaseFragment extends Fragment implements BaseView {
   protected void addFragment(@NonNull Fragment fragment) {
     if (baseActivity != null) {
       baseActivity.addFragment(fragment);
-    }
-  }
-
-  protected void replaceFragment(@NonNull Fragment fragment) {
-    if (baseActivity != null) {
-      baseActivity.replaceFragment(fragment);
     }
   }
 
