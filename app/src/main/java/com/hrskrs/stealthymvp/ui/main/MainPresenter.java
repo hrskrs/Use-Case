@@ -1,5 +1,8 @@
 package com.hrskrs.stealthymvp.ui.main;
 
+import android.support.annotation.NonNull;
+
+import com.hrskrs.stealthymvp.model.Profile;
 import com.hrskrs.stealthymvp.ui.base.BasePresenter;
 import com.hrskrs.stealthymvp.ui.base.BaseView;
 
@@ -14,4 +17,8 @@ public interface MainPresenter<V extends BaseView> extends BasePresenter<V>{
   void getProfiles();
 
   void getProfileDetails(@NotNull long id);
+
+  void addProfile(@NonNull Profile profile);
+
+  void deleteProfile(@NonNull Profile profile);
 }

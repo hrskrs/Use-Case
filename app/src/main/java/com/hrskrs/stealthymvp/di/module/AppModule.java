@@ -7,6 +7,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hrskrs.stealthymvp.data.DataManagerImp;
 import com.hrskrs.stealthymvp.data.DataManger;
+import com.hrskrs.stealthymvp.data.local.DbManager;
+import com.hrskrs.stealthymvp.data.local.DbManagerImp;
+import com.hrskrs.stealthymvp.data.local.DbOpenHelper;
 import com.hrskrs.stealthymvp.data.remote.api.ApiManger;
 import com.hrskrs.stealthymvp.data.remote.api.ApiMangerImp;
 import com.hrskrs.stealthymvp.di.ApplicationContext;
@@ -65,27 +68,27 @@ public class AppModule {
   SharedPrefsHelper provideSharedPreferencesHelper(@ApplicationContext Context context, Gson gson) {
     return new SharedPrefsHelperImp(context, gson);
   }
-//
-//  @Provides
-//  @Singleton
-//  DbOpenHelper provideDbHelper(@ApplicationContext Context context,
-//                               @DatabaseInfo String dbName) {
-//    return new DbOpenHelper(context, dbName);
-//  }
-//
-//  @Provides
-//  @Singleton
-//  DbManager provideDbManager(DbOpenHelper dbOpenHelper) {
-//    return new DbManagerImp(dbOpenHelper);
-//  }
-//
+
+  @Provides
+  @Singleton
+  DbOpenHelper provideDbHelper(@ApplicationContext Context context,
+                               @DatabaseInfo String dbName) {
+    return new DbOpenHelper(context, dbName);
+  }
+
+  @Provides
+  @Singleton
+  DbManager provideDbManager(DbOpenHelper dbOpenHelper) {
+    return new DbManagerImp(dbOpenHelper);
+  }
+
   @Provides
   @Singleton
   DataManger providesDataManger(@ApplicationContext Context context,
                                 SharedPrefsHelper sharedPrefsHelper,
-//                                DbManager dbManager,
+                                DbManager dbManager,
                                 ApiManger apiManger) {
-    return new DataManagerImp(context, sharedPrefsHelper, apiManger);
+    return new DataManagerImp(context, sharedPrefsHelper, dbManager, apiManger);
   }
 
   @Provides

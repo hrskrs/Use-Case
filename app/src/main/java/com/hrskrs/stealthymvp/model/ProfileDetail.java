@@ -12,13 +12,13 @@ import org.parceler.Parcel;
 public class ProfileDetail {
 
   @SerializedName("id")
-  private long id;
+  long id;
   @SerializedName("first_name")
-  private String firstName;
+  String firstName;
   @SerializedName("last_name")
-  private String lastName;
+  String lastName;
   @SerializedName("profile_picture")
-  private String profilePictureUrl;
+  String profilePictureUrl;
 
   public long getId() {
     return id;

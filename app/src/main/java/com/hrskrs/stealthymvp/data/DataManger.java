@@ -17,4 +17,8 @@ public interface DataManger {
   Observable<ArrayList<Profile>> getProfiles();
 
   Observable<ProfileDetail> getProfileDetails(@NotNull long id);
+
+  Observable<Long> addProfile(Profile profile);
+
+  Observable<Boolean> deleteProfile(Profile profile);
 }

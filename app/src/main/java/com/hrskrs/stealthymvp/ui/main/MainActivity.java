@@ -45,10 +45,10 @@ public class MainActivity extends BaseActivity implements MainView {
         FavProfileClickEvent event = ((FavProfileClickEvent) o);
         switch (event.getType()) {
           case INSERT:
-//            mainPresenter.addProfile(event.getProfile());
+            mainPresenter.addProfile(event.getProfile());
             break;
           case DELETE:
-//            mainPresenter.deleteProfile(event.getProfile());
+            mainPresenter.deleteProfile(event.getProfile());
             break;
           default:
             break;

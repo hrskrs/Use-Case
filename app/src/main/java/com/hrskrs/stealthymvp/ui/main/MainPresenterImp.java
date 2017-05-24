@@ -1,5 +1,7 @@
 package com.hrskrs.stealthymvp.ui.main;
 
+import android.support.annotation.NonNull;
+
 import com.hrskrs.stealthymvp.data.DataManger;
 import com.hrskrs.stealthymvp.model.Profile;
 import com.hrskrs.stealthymvp.model.ProfileDetail;
@@ -98,5 +100,21 @@ public class MainPresenterImp<V extends MainView>
     } else {
       getView().onConnectionError();
     }
+  }
+
+  @Override
+  public void addProfile(@NonNull Profile profile) {
+    Disposable disposable = getDataManger().addProfile(profile)
+        .subscribeOn(getSchedulerProvider().io())
+        .subscribe();
+    getCompositeDisposable().add(disposable);
+  }
+
+  @Override
+  public void deleteProfile(@NonNull Profile profile) {
+    Disposable disposable = getDataManger().deleteProfile(profile)
+        .subscribeOn(getSchedulerProvider().io())
+        .subscribe();
+    getCompositeDisposable().add(disposable);
   }
 }

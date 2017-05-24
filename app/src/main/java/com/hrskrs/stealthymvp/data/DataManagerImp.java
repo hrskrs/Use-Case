@@ -2,6 +2,7 @@ package com.hrskrs.stealthymvp.data;
 
 import android.content.Context;
 
+import com.hrskrs.stealthymvp.data.local.DbManager;
 import com.hrskrs.stealthymvp.data.remote.api.ApiManger;
 import com.hrskrs.stealthymvp.di.ApplicationContext;
 import com.hrskrs.stealthymvp.model.Profile;
@@ -21,17 +22,17 @@ public class DataManagerImp implements DataManger {
 
   private Context context;
   private SharedPrefsHelper sharedPrefsHelper;
-//  private DbManager dbManager;
+  private DbManager dbManager;
   private ApiManger api;
 
   @Inject
   public DataManagerImp(@ApplicationContext Context context,
                         SharedPrefsHelper sharedPrefsHelper,
-//                        DbManager dbManager,
+                        DbManager dbManager,
                         ApiManger api) {
     this.context = context;
     this.sharedPrefsHelper = sharedPrefsHelper;
-//    this.dbManager = dbManager;
+    this.dbManager = dbManager;
     this.api = api;
   }
 
@@ -43,5 +44,15 @@ public class DataManagerImp implements DataManger {
   @Override
   public Observable<ProfileDetail> getProfileDetails(long id) {
     return api.getProfileDetails(id);
+  }
+
+  @Override
+  public Observable<Long> addProfile(Profile profile) {
+    return Observable.fromCallable(dbManager.insertProfile(profile));
+  }
+
+  @Override
+  public Observable<Boolean> deleteProfile(Profile profile) {
+    return Observable.fromCallable(dbManager.deleteProfile(profile.getId()));
   }
 }
