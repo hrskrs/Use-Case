@@ -1,0 +1,77 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import org.ajoberstar.grgit.Grgit
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.4.0-alpha7'
+
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+    classpath 'org.ajoberstar:grgit:1.9.2'
+    classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+  }
+}
+
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+ext{
+  def versionMajor = 1
+  def versionMinor = 0
+  def versionPatch = 0
+
+  def git = Grgit.open(currentDir: projectDir)
+  def gitVersionName = git.describe()
+  def gitVersionCode = git.tag.list().size()
+  def gitVersionCodeTime = git.head().time
+
+  compileSdkVersion = 25
+  buildToolsVersion = "25.0.1"
+  applicationId = "com.hrskrs.stealthymvp"
+  minSdkVersion = 16
+  targetSdkVersion = 25
+
+  versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + gitVersionCode
+  versionCodeTime = versionCode + gitVersionCodeTime
+  versionName = "${versionMajor}.${versionMinor}.${versionPatch}.${gitVersionName}"
+
+  supportLibVersion = "25.3.1"
+  constraintLayoutVersion = "1.0.0-alpha8"
+  butterKnifeVersion = "8.1.0"
+  glideVersion = "3.7.0"
+  retrofitVersion  = "2.0.2"
+  okhttpVersion = "3.4.1"
+  rxAndroidVersion = "2.0.1"
+  rxJavaVersion = "2.0.5"
+  rxJavaAdapterVersion = "1.0.0"
+  javaxAnnonationVersion = "1.0"
+  javaxVersion = "1"
+  daggerVersion = "2.10"
+  parcelerVersion = "1.1.6"
+  greenDaoVersion = "3.2.2"
+
+  //Development
+  stethoVersion = "1.4.2"
+  leakCanaryVersion = "1.5"
+}
+
+task printPaths(){
+  println("project.rootDir: $project.rootDir")
+  println("project.buidDir: $project.buildDir")
+}
+
+task printVersion() {
+  println("Version Name: $versionName")
+  println("Version Code: $versionCode")
+  println("Version Code Time: $versionCodeTime")
+}

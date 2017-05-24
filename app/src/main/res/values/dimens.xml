@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Default screen margins, per the Android Design guidelines. -->
+  <dimen name="activity_default_margin">16dp</dimen>
+  <dimen name="activity_default_padding">16dp</dimen>
+
+  <!--Padding Dimens-->
+  <dimen name="hk_padding_tiny">4dp</dimen>
+  <dimen name="hk_padding_small">8dp</dimen>
+  <dimen name="hk_padding_pre_medium">12dp</dimen>
+  <dimen name="hk_padding_medium">16dp</dimen>
+  <dimen name="hk_padding_pre_big">20dp</dimen>
+  <dimen name="hk_padding_big">24dp</dimen>
+
+  <!--Margin Dimens-->
+  <dimen name="hk_margin_tiny">4dp</dimen>
+  <dimen name="hk_margin_small">8dp</dimen>
+  <dimen name="hk_margin_pre_medium">12dp</dimen>
+  <dimen name="hk_margin_medium">16dp</dimen>
+  <dimen name="hk_margin_pre_big">20dp</dimen>
+  <dimen name="hk_margin_big">24dp</dimen>
+  <dimen name="hk_margin_pre_large">32dp</dimen>
+  <dimen name="hk_margin_large">36dp</dimen>
+
+  <!--Text Dimens-->
+  <dimen name="hk_text_size_extra_tiny">10sp</dimen>
+  <dimen name="hk_text_size_tiny">12sp</dimen>
+  <dimen name="hk_text_size_smaller">13sp</dimen>
+  <dimen name="hk_text_size_small">14sp</dimen>
+  <dimen name="hk_text_size_medium">16sp</dimen>
+  <dimen name="hk_text_size_big">18sp</dimen>
+  <dimen name="hk_text_size_large">20sp</dimen>
+  <dimen name="hk_text_size_huge">24sp</dimen>
+  <dimen name="hk_text_size_huger">26sp</dimen>
+  <dimen name="hk_text_size_keypad">32sp</dimen>
+
+  <dimen name="hk_toolbar_elevation">4dp</dimen>
+
+  <!--Others-->
+  <dimen name="fab_elevation">6dp</dimen>
+
+</resources>
