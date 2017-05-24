@@ -90,6 +90,15 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         fragment, getFragmentContainerId(), addToBackStack);
   }
 
+  protected void replaceFragment(@NonNull Fragment fragment) {
+    replaceFragment(fragment, false);
+  }
+
+  protected void replaceFragment(@NonNull Fragment fragment, boolean addToBackStack) {
+    FragmentTransactionUtil.replaceFragment(getSupportFragmentManager(),
+        fragment, getFragmentContainerId(), addToBackStack);
+  }
+
   @TargetApi(Build.VERSION_CODES.M)
   public void requestPermissionsSafely(String[] permissions, int requestCode) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

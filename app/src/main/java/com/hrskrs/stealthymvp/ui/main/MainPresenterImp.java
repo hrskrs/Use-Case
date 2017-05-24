@@ -2,6 +2,7 @@ package com.hrskrs.stealthymvp.ui.main;
 
 import com.hrskrs.stealthymvp.data.DataManger;
 import com.hrskrs.stealthymvp.model.Profile;
+import com.hrskrs.stealthymvp.model.ProfileDetail;
 import com.hrskrs.stealthymvp.ui.base.BasePresenterImp;
 import com.hrskrs.stealthymvp.util.rx.scheduler.SchedulerProvider;
 
@@ -46,7 +47,42 @@ public class MainPresenterImp<V extends MainView>
 
             @Override
             public void onError(Throwable e) {
+              if (!isViewAttached()) {
+                return;
+              }
+              getView().onUnknownError(e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+          });
+      getCompositeDisposable().add(disposable);
+    } else {
+      getView().onConnectionError();
+    }
+  }
+
+  @Override
+  public void getProfileDetails(long id) {
+    if (getView().isNetworkConnected()) {
+      getView().showLoading();
+      Disposable disposable = getDataManger().getProfileDetails(id)
+          .subscribeOn(getSchedulerProvider().io())
+          .observeOn(getSchedulerProvider().ui())
+          .subscribeWith(new DisposableObserver<ProfileDetail>() {
+            @Override
+            public void onNext(ProfileDetail details) {
+              if (!isViewAttached()) {
+                return;
+              }
+              getView().onProfileDetailsLoaded(details);
               getView().hideLoading();
+            }
+
+            @Override
+            public void onError(Throwable e) {
               if (!isViewAttached()) {
                 return;
               }

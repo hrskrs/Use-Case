@@ -29,7 +29,7 @@ public class ProfilesFragment extends BaseFragment {
   @BindView(R.id.profiles_recyclerview)
   RecyclerView profilesRecyclerView;
 
-  public static ProfilesFragment newInstance(ArrayList<Profile> profiles){
+  public static ProfilesFragment newInstance(ArrayList<Profile> profiles) {
     Bundle b = new Bundle();
     b.putParcelable(KEY_PROFILES, Parcels.wrap(profiles));
     ProfilesFragment fragment = new ProfilesFragment();
@@ -44,7 +44,8 @@ public class ProfilesFragment extends BaseFragment {
 
   @Override
   protected void setupToolbar(Toolbar toolbar) {
-
+    toolbar.setTitle(R.string.app_name);
+    toolbar.setNavigationIcon(null);
   }
 
   @Override

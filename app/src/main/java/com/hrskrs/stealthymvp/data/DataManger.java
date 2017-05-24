@@ -1,6 +1,9 @@
 package com.hrskrs.stealthymvp.data;
 
 import com.hrskrs.stealthymvp.model.Profile;
+import com.hrskrs.stealthymvp.model.ProfileDetail;
+
+import org.greenrobot.greendao.annotation.NotNull;
 
 import java.util.ArrayList;
 
@@ -12,4 +15,6 @@ import io.reactivex.Observable;
 public interface DataManger {
 
   Observable<ArrayList<Profile>> getProfiles();
+
+  Observable<ProfileDetail> getProfileDetails(@NotNull long id);
 }

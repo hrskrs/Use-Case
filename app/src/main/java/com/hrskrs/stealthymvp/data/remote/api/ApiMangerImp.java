@@ -2,6 +2,7 @@ package com.hrskrs.stealthymvp.data.remote.api;
 
 
 import com.hrskrs.stealthymvp.model.Profile;
+import com.hrskrs.stealthymvp.model.ProfileDetail;
 
 import java.util.ArrayList;
 
@@ -15,15 +16,20 @@ import retrofit2.Retrofit;
  */
 public class ApiMangerImp implements ApiManger {
 
-  private AppService retrofitQuoteService;
+  private RetrofitService retrofitService;
 
   @Inject
   public ApiMangerImp(Retrofit retrofit) {
-    this.retrofitQuoteService = retrofit.create(AppService.class);
+    this.retrofitService = retrofit.create(RetrofitService.class);
   }
 
   @Override
   public Observable<ArrayList<Profile>> getProfiles() {
-    return retrofitQuoteService.getProfiles();
+    return retrofitService.getProfiles();
+  }
+
+  @Override
+  public Observable<ProfileDetail> getProfileDetails(long id) {
+    return retrofitService.getProfileDetails(id);
   }
 }

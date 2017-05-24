@@ -66,6 +66,12 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     }
   }
 
+  protected void replaceFragment(@NonNull Fragment fragment) {
+    if (baseActivity != null) {
+      baseActivity.replaceFragment(fragment);
+    }
+  }
+
   @Override
   public void onDestroyView() {
     if (unbinder != null) {

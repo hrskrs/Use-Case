@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <com.hrskrs.stealthymvp.view.HKTextView
+    android:id="@+id/profile_details_full_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/hk_padding_medium"
+    android:textSize="@dimen/hk_text_size_huger"
+    tools:text="Placeholder" />
+
+  <com.hrskrs.stealthymvp.view.HKImageView
+    android:id="@+id/profile_details_image"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:adjustViewBounds="true"
+    android:scaleType="fitXY" />
+
+  <com.hrskrs.stealthymvp.view.HKButton
+    android:id="@+id/profile_details_add_to_fav_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/hk_margin_medium"
+    android:padding="@dimen/hk_padding_medium"
+    android:text="@string/btn_add_to_fav" />
+
+</LinearLayout>

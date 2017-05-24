@@ -1,6 +1,7 @@
 package com.hrskrs.stealthymvp.ui.main;
 
 import com.hrskrs.stealthymvp.model.Profile;
+import com.hrskrs.stealthymvp.model.ProfileDetail;
 import com.hrskrs.stealthymvp.ui.base.BaseView;
 
 import java.util.ArrayList;
@@ -12,4 +13,6 @@ import java.util.ArrayList;
 public interface MainView extends BaseView {
 
   void onProfilesLoaded(ArrayList<Profile> profiles);
+
+  void onProfileDetailsLoaded(ProfileDetail profileDetail);
 }
